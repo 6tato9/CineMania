@@ -1,0 +1,90 @@
+/* 1. ზოგადი პარამეტრები */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+/* 2. ნავიგაციის ზოლი */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 80px; /* სიმაღლე ფიქსირებულია */
+    background-color: #000;
+    border-bottom: 2px solid #330000; /* ძალიან მუქი წითელი ხაზი */
+}
+
+/* 3. ლოგოს სექცია */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-text {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    color: #FF0000; /* Mania იქნება წითელი */
+}
+
+/* 4. ცენტრალური ლინკები */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a.active {
+    color: #FF0000; /* Home - წითელი */
+}
+
+.nav-links a:hover {
+    color: #FF4D4D; /* ღია წითელი ჰოვერზე */
+}
+
+/* 5. მარჯვენა ღილაკები */
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+.signup-btn {
+    text-decoration: none;
+    background-color: #FF0000;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #8B0000; /* მუქი წითელი ჰოვერზე */
+}
