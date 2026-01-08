@@ -162,8 +162,6 @@ body {
 }
 
 
-
-
 /* სექციის საერთო სტილი */
 .movies-section {
     padding: 30px 50px;
@@ -239,3 +237,5 @@ body {
     .movies-section { padding: 20px; }
     .movie-card { min-width: 140px; } /* მობილურზე ოდნავ პატარა ბარათები */
 }
+
+

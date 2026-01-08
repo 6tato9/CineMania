@@ -1,29 +1,14 @@
-const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key=4d34f58c78053baea9663bc948f91c17";
+const API_KEY = "4d34f58c78053baea9663bc948f91c17";
+const BASE_URL = "https://api.themoviedb.org/3";
 const IMG_PATH = "https://image.tmdb.org/t/p/original";
-
-async function fetchHero() {
-    const res = await fetch(API_URL);
-    const data = await res.json();
-    
-    
-    const movie = data.results[0];
-
-    
-    document.getElementById('movie-title').innerText = movie.title;
-    document.getElementById('movie-desc').innerText = movie.overview;
-    document.getElementById('movie-rating').innerText = "⭐ " + movie.vote_average;
-    document.getElementById('movie-poster').src = IMG_PATH + movie.poster_path;
-    
-    
-    document.getElementById('hero-section').style.backgroundImage = `url(${IMG_PATH + movie.backdrop_path})`;
-}
-
-fetchHero();
 
 
 function displayMovies(movies, containerId) {
     const container = document.getElementById(containerId);
+    if (!container) return;
     
+    container.innerHTML = ""; 
+
     movies.forEach(movie => {
         const movieCard = document.createElement('div');
         movieCard.classList.add('movie-card');
@@ -37,11 +22,38 @@ function displayMovies(movies, containerId) {
     });
 }
 
+// 2. მთავარი ფუნქციები
 async function initApp() {
-    const res = await fetch(API_URL);
-    const data = await res.json();
+    try {
+        
+        const resPopular = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
+        const dataPopular = await resPopular.json();
+        const popularMovies = dataPopular.results;
 
-    displayMovies(data.results.slice(1), 'popular-grid');
+        // --- HERO SECTION ---
+        if (popularMovies.length > 0) {
+            const heroMovie = popularMovies[0];
+            document.getElementById('movie-title').innerText = heroMovie.title;
+            document.getElementById('movie-desc').innerText = heroMovie.overview;
+            document.getElementById('movie-rating').innerText = "⭐ " + heroMovie.vote_average.toFixed(1);
+            document.getElementById('movie-poster').src = IMG_PATH + heroMovie.poster_path;
+            document.getElementById('hero-section').style.backgroundImage = 
+                `linear-gradient(to right, rgba(0,0,0,0.9) 20%, transparent 100%), url(${IMG_PATH + heroMovie.backdrop_path})`;
+        }
+
+        // --- POPULAR SLIDER ---
+        
+        displayMovies(popularMovies.slice(1), 'popular-grid');
+
+        // --- HORROR SLIDER ---
+        const resHorror = await fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=27`);
+        const dataHorror = await resHorror.json();
+        displayMovies(dataHorror.results, 'horror-grid');
+
+    } catch (error) {
+        console.error("Error loading movies:", error);
+    }
 }
+
 
 initApp();
