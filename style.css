@@ -160,3 +160,82 @@ body {
     padding: 10px;
     border-radius: 8px;
 }
+
+
+
+
+/* სექციის საერთო სტილი */
+.movies-section {
+    padding: 30px 50px;
+    background-color: #000;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    color: #fff;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.see-all {
+    color: #FF0000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.see-all:hover { opacity: 0.7; }
+
+/* სლაიდერის კონტეინერი */
+.movies-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* ჰორიზონტალური სქროლი */
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+    /* ინერციული სქროლი მობილურისთვის */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* სქროლის დამალვა (სილამაზისთვის) */
+.movies-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* ფილმის ბარათი */
+.movie-card {
+    min-width: 180px; /* მობილურზე კარგად გამოჩნდება */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.movie-card:hover { transform: scale(1.05); }
+
+.movie-card img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.movie-card h4 {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* მობილურის ოპტიმიზაცია (Media Query) */
+@media (max-width: 768px) {
+    .movies-section { padding: 20px; }
+    .movie-card { min-width: 140px; } /* მობილურზე ოდნავ პატარა ბარათები */
+}

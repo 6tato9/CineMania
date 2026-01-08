@@ -19,3 +19,29 @@ async function fetchHero() {
 }
 
 fetchHero();
+
+
+function displayMovies(movies, containerId) {
+    const container = document.getElementById(containerId);
+    
+    movies.forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.classList.add('movie-card');
+        
+        movieCard.innerHTML = `
+            <img src="${IMG_PATH + movie.poster_path}" alt="${movie.title}">
+            <h4>${movie.title}</h4>
+        `;
+        
+        container.appendChild(movieCard);
+    });
+}
+
+async function initApp() {
+    const res = await fetch(API_URL);
+    const data = await res.json();
+
+    displayMovies(data.results.slice(1), 'popular-grid');
+}
+
+initApp();
