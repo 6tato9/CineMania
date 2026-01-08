@@ -191,25 +191,22 @@ body {
 
 .see-all:hover { opacity: 0.7; }
 
-/* სლაიდერის კონტეინერი */
 .movies-container {
     display: flex;
     gap: 20px;
-    overflow-x: auto; /* ჰორიზონტალური სქროლი */
+    overflow-x: auto; 
     scroll-behavior: smooth;
     padding-bottom: 15px;
-    /* ინერციული სქროლი მობილურისთვის */
+    
     -webkit-overflow-scrolling: touch;
 }
 
-/* სქროლის დამალვა (სილამაზისთვის) */
 .movies-container::-webkit-scrollbar {
     display: none;
 }
 
-/* ფილმის ბარათი */
 .movie-card {
-    min-width: 180px; /* მობილურზე კარგად გამოჩნდება */
+    min-width: 180px; 
     cursor: pointer;
     transition: transform 0.3s;
 }
@@ -232,10 +229,9 @@ body {
     text-overflow: ellipsis;
 }
 
-/* მობილურის ოპტიმიზაცია (Media Query) */
 @media (max-width: 768px) {
     .movies-section { padding: 20px; }
-    .movie-card { min-width: 140px; } /* მობილურზე ოდნავ პატარა ბარათები */
+    .movie-card { min-width: 140px; } 
 }
 
 

@@ -50,6 +50,11 @@ async function initApp() {
         const dataHorror = await resHorror.json();
         displayMovies(dataHorror.results, 'horror-grid');
 
+        //---series---
+        const resTV = await fetch(`${BASE_URL}/tv/popular?api_key=${API_KEY}`);
+        const dataTV = await resTV.json();
+        displayMovies(dataTV.results, 'tv-grid');
+
     } catch (error) {
         console.error("Error loading movies:", error);
     }
