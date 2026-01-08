@@ -1,4 +1,4 @@
-/* 1. ზოგადი პარამეტრები */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,18 +11,17 @@ body {
     color: white;
 }
 
-/* 2. ნავიგაციის ზოლი */
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
-    height: 80px; /* სიმაღლე ფიქსირებულია */
+    height: 80px; 
     background-color: #000;
-    border-bottom: 2px solid #330000; /* ძალიან მუქი წითელი ხაზი */
+    border-bottom: 2px solid #330000; 
 }
 
-/* 3. ლოგოს სექცია */
 .nav-logo {
     display: flex;
     align-items: center;
@@ -36,10 +35,10 @@ body {
 }
 
 .logo-text span {
-    color: #FF0000; /* Mania იქნება წითელი */
+    color: #FF0000; 
 }
 
-/* 4. ცენტრალური ლინკები */
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -55,14 +54,13 @@ body {
 }
 
 .nav-links a.active {
-    color: #FF0000; /* Home - წითელი */
+    color: #FF0000; 
 }
 
 .nav-links a:hover {
-    color: #FF4D4D; /* ღია წითელი ჰოვერზე */
+    color: #FF4D4D; 
 }
 
-/* 5. მარჯვენა ღილაკები */
 .nav-auth {
     display: flex;
     align-items: center;
@@ -86,5 +84,79 @@ body {
 }
 
 .signup-btn:hover {
-    background-color: #8B0000; /* მუქი წითელი ჰოვერზე */
+    background-color: #8B0000; 
+}
+
+
+
+.hero {
+    height: 80vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+
+.hero::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, #000 15%, transparent 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.hero-details { max-width: 50%; }
+
+.hero-details h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hero-details p {
+    font-size: 1.1rem;
+    color: #ddd;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.btn-watch {
+    background: #a02e2e; 
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero-poster-container { position: relative; }
+
+.hero-poster-container img {
+    width: 280px;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.rating-badge {
+    position: absolute;
+    bottom: 20px; left: -15px;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid #fff;
+    padding: 10px;
+    border-radius: 8px;
 }
