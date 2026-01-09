@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular TV Shows - Cinemania</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            padding: 40px 20px;
+        }
+        .page-title { padding: 0 20px; margin-top: 100px; color: white; }
+        .load-more {
+            display: block;
+            margin: 40px auto;
+            padding: 12px 30px;
+            background: #e50914;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .load-more:hover { background: #b20710; }
+    </style>
+</head>
+<body style="background-color: #111;">
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span class="logo-text">CINE<span>MANIA</span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="./popular.html">Movies</a></li>
+            <li><a href="tv-shows.html" class="active">TV Shows</a></li>
+            <li><a href="./tv-shows.html">Series</a></li>
+            <li><a href="./popular.html">Trending</a></li>
+        </ul>
+        <div class="nav-auth">
+            <a href="#" class="login-link">Log In</a>
+            <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <h1 class="page-title">Popular TV Shows</h1>
+    
+    <div id="tvShowsGrid" class="grid-layout">
+        </div>
+
+    <button id="loadMoreBtn" class="load-more">Load More</button>
+
+    <script src="tv-shows.js"></script>
+</body>
+</html>

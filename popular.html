@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span class="logo-text">CINE<span>MANIA</span></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="./index.html" >Home</a></li>
+            <li><a href="./popular.html" class="active">Movies</a></li>
+            <li><a href="./tv-shows.html">TV Shows</a></li>
+            <li><a href="./tv-shows.html">Series</a></li>
+            <li><a href="./popular.html">Trending</a></li>
+        </ul>
+
+        <div class="nav-auth">
+            <a href="#" class="login-link">Log In</a>
+            <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+    
+    
+    
+    
+    
+    <meta charset="UTF-8">
+    <title>All Popular Movies</title>
+    <link rel="stylesheet" href="style.css"> <style>
+        /* დავამატოთ მხოლოდ Grid-ის განლაგება, რომ ფილმები გვერდიგვერდ ჩალაგდეს */
+        #popular-grid-full {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .load-more-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 25px;
+            background: #e50914;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body style="background: #111; color: white;">
+
+    <div class="section-header" style="padding: 20px;">
+        <h2 class="section-title">Popular Movies</h2>
+        <a href="index.html" style="color: white; text-decoration: none;">← Back</a>
+    </div>
+
+    <div class="movies-container" id="popular-grid-full"></div>
+
+    <button id="loadMore" class="load-more-btn">Load More</button>
+
+    <script src="popular.js"></script>
+</body>
+</html>
