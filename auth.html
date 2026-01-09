@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth - CineMania</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: #000;">
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span class="logo-text">CINE<span>MANIA</span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="popular.html">Movies</a></li>
+            <li><a href="tv-shows.html">TV Shows</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-section">
+        <div class="auth-container">
+            <h2 id="auth-title">Sign Up</h2>
+            <form id="auth-form">
+                <input type="email" id="email" placeholder="Email Address" required>
+                
+                <div class="password-field">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span id="toggle-password" class="toggle-icon">👁️</span>
+                </div>
+
+                <button type="submit" id="auth-submit">Create Account</button>
+            </form>
+            <p class="auth-switch">Already have an account? <a href="#" id="switch-auth">Log In now.</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

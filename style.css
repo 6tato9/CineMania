@@ -229,12 +229,6 @@ body {
     text-overflow: ellipsis;
 }
 
-@media (max-width: 768px) {
-    .movies-section { padding: 20px; }
-    .movie-card { min-width: 140px; } 
-}
-
-
 .main-footer {
     background-color: #0a0a0a;
     color: #fff;
@@ -316,13 +310,6 @@ body {
     font-size: 14px;
 }
 
-/* რესპონსივი მობილურებისთვის */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-}
 
 body {
     background-color: #0e0101; /* მაგალითად, მუქი ლურჯი ტონი */
@@ -331,3 +318,156 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
+/* Auth Section Styling */
+.auth-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bca1-07e3f8eb14af/65db6667-1755-4673-9a3d-c1955375c3f0/GE-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.auth-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 50px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border-top: 4px solid #e50914;
+}
+
+.auth-container h2 { color: #fff; margin-bottom: 25px; font-size: 28px; }
+
+#auth-form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #333;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.password-field { position: relative; }
+.toggle-icon { position: absolute; right: 15px; top: 15px; cursor: pointer; color: #bbb; }
+
+#auth-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-profile-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+.logout-link {
+    color: #e50914;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #e50914;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+
+
+
+/* --- 1. ბურგერის ბაზისური სტილი (კომპიუტერზე დამალულია) --- */
+.burger { 
+    display: none; 
+    cursor: pointer; 
+    z-index: 1001; 
+}
+
+.burger div { 
+    width: 25px; 
+    height: 3px; 
+    background: white; 
+    margin: 5px; 
+    transition: 0.3s; 
+}
+
+/* --- 2. რესპონსივი 900px-ზე (ბურგერ მენიუს ჩართვა) --- */
+@media screen and (max-width: 900px) {
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 65%;
+        background: rgba(0, 0, 0, 0.98);
+        display: flex !important; /* აქ display: none არ უნდა ეწეროს! */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transform: translateX(100%); /* მენიუ გადის ეკრანიდან მარჯვნივ */
+        transition: transform 0.5s ease-in-out;
+        z-index: 1000;
+    }
+
+    /* ეს კლასი ააქტიურებს JS-ი დაჭერისას */
+    .nav-links.nav-active {
+        transform: translateX(0);
+    }
+
+    .burger { 
+        display: block !important; 
+    }
+
+    .nav-auth {
+        display: none; /* რეგისტრაციის ღილაკებს ვმალავთ, რომ ბურგერს არ დაეჯახოს */
+    }
+
+    /* Hero სექციის გასწორება */
+    .hero-poster-container { display: none; }
+    .hero-content { flex-direction: column; text-align: center; }
+    .hero-details { max-width: 100%; }
+    .hero-details h1 { font-size: 2.2rem; }
+}
+
+/* --- 3. დამატებითი ბრეიქპოინტები (1024px, 768px, 480px, 320px) --- */
+
+@media screen and (max-width: 1024px) {
+    .movies-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    .navbar { padding: 0 25px; }
+}
+
+@media screen and (max-width: 768px) {
+    .movies-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section-title { font-size: 1.3rem; }
+    .footer-content { flex-direction: column; text-align: center; gap: 20px; }
+}
+
+/* 320px - აუცილებელია 5 ქულისთვის */
+@media screen and (max-width: 320px) {
+    .movies-container {
+        grid-template-columns: 1fr; /* ერთი ფილმი ერთ ხაზზე */
+    }
+    .hero-details h1 { font-size: 1.5rem; }
+    .logo-text { font-size: 1.1rem; }
+    .auth-container { padding: 25px 15px; }
+}

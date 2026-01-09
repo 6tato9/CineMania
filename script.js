@@ -62,3 +62,108 @@ async function initApp() {
 
 
 initApp();
+
+
+// --- 1. ნავიგაციის განახლების ლოგიკა ---
+function updateNavbar() {
+    const navAuth = document.querySelector('.nav-auth');
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userName = localStorage.getItem('userName');
+
+    if (isLoggedIn === 'true' && navAuth) {
+        navAuth.innerHTML = `
+            <div class="user-profile-nav">
+                <span>Hi, <strong>${userName}</strong></span>
+                <a href="#" id="logout-btn" class="logout-link">Log Out</a>
+            </div>
+        `;
+
+        document.getElementById('logout-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.clear();
+            window.location.href = 'index.html';
+        });
+    }
+}
+
+// --- 2. ავტორიზაციის ფორმის ლოგიკა ---
+const authForm = document.getElementById('auth-form');
+if (authForm) {
+    const switchAuth = document.getElementById('switch-auth');
+    const authTitle = document.getElementById('auth-title');
+    const authSubmit = document.getElementById('auth-submit');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const togglePass = document.getElementById('toggle-password');
+
+    let isLoginMode = false;
+
+    // რეჟიმების გადართვა (Login / Sign Up)
+    switchAuth.addEventListener('click', (e) => {
+        e.preventDefault();
+        isLoginMode = !isLoginMode;
+        authTitle.textContent = isLoginMode ? "Log In" : "Sign Up";
+        authSubmit.textContent = isLoginMode ? "Sign In" : "Create Account";
+        switchAuth.textContent = isLoginMode ? "Sign Up now." : "Log In now.";
+    });
+
+    // პაროლის ჩვენება/დამალვა
+    togglePass.addEventListener('click', () => {
+        const type = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = type;
+        togglePass.textContent = type === 'password' ? '👁️' : '🔒';
+    });
+
+    // ფორმის გაგზავნა
+    authForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = emailInput.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email!");
+            return;
+        }
+
+        if (passwordInput.value.length < 6) {
+            alert("Password must be at least 6 characters!");
+            return;
+        }
+
+        // მომხმარებლის სახელის ამოღება მეილიდან
+        const name = email.split('@')[0];
+        localStorage.setItem('userName', name);
+        localStorage.setItem('isLoggedIn', 'true');
+
+        alert(isLoginMode ? "Welcome back!" : "Account created!");
+        window.location.href = 'index.html';
+    });
+}
+
+// ფუნქციის გამოძახება გვერდის ჩატვირთვისას
+document.addEventListener('DOMContentLoaded', updateNavbar);
+
+
+
+
+const burger = document.getElementById('burger');
+const nav = document.querySelector('.nav-links');
+
+if (burger) {
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+    });
+}
+
+
+
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+        navbar.style.padding = '10px 50px'; // ცოტათი დაპატარავდება სქროლისას
+    } else {
+        navbar.style.backgroundColor = '#000';
+        navbar.style.padding = '20px 50px';
+    }
+});
