@@ -167,3 +167,22 @@ window.addEventListener('scroll', () => {
         navbar.style.padding = '20px 50px';
     }
 });
+
+
+// თუ უკვე დაეთანხმა, არ გამოაჩინო
+if (!localStorage.getItem('cookiesAccepted')) {
+    // შექმენი ბანერი დინამიურად
+    const banner = document.createElement('div');
+    banner.innerHTML = `
+        <div id="cookie-wrap" style="position:fixed; bottom:20px; right:20px; background:#FF0000; color:white; padding:15px; z-index:9999; border-radius:10px;">
+            <span>Accept Cookies?</span>
+            <button id="accept-cookies" style="margin-left:10px; cursor:pointer; border:none; padding:5px; border-radius:5px;">Yes</button>
+        </div>
+    `;
+    document.body.appendChild(banner);
+
+    document.getElementById('accept-cookies').addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookie-wrap').remove();
+    });
+}
