@@ -444,18 +444,18 @@ body {
 
 @media screen and (max-width: 1024px) {
     .movies-container {
-        display: grid;
+        display: flex;
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
     }
     .navbar { padding: 0 25px; }
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .movies-container {
         grid-template-columns: repeat(2, 1fr);
     }
-}
+} */
 
 @media screen and (max-width: 480px) {
     .section-title { font-size: 1.3rem; }
@@ -463,11 +463,31 @@ body {
 }
 
 /* 320px - აუცილებელია 5 ქულისთვის */
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 320px) {
     .movies-container {
         grid-template-columns: 1fr; /* ერთი ფილმი ერთ ხაზზე */
-    }
+    /* }
     .hero-details h1 { font-size: 1.5rem; }
     .logo-text { font-size: 1.1rem; }
     .auth-container { padding: 25px 15px; }
+} */ 
+
+@media screen and (max-width: 320px) {
+    /* movies-container-ს საერთოდ არ ვეხებით, რჩება flex + horizontal scroll */
+    
+    .hero-details h1 {
+        font-size: 1.5rem;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .auth-container {
+        padding: 25px 15px;
+    }
 }
+
+
+
+
