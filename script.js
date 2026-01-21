@@ -186,3 +186,23 @@ if (!localStorage.getItem('cookiesAccepted')) {
         document.getElementById('cookie-wrap').remove();
     });
 }
+
+
+// Get the Category elements
+const categoryBtn = document.querySelector('.dropbtn');
+const categoryMenu = document.querySelector('.dropdown-menu');
+
+// 1. Listen for the click on the Categories button
+categoryBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevents page reload
+    e.stopPropagation(); // Prevents the 'window' click from firing immediately
+    categoryMenu.classList.toggle('show');
+});
+
+// 2. Close the menu if you click anywhere else on the screen
+window.addEventListener('click', (e) => {
+    // If the click is NOT on the button or the menu, hide the menu
+    if (!categoryBtn.contains(e.target) && !categoryMenu.contains(e.target)) {
+        categoryMenu.classList.remove('show');
+    }
+});

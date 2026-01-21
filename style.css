@@ -86,6 +86,96 @@ body {
 .signup-btn:hover {
     background-color: #8B0000; 
 }
+/* 1. Style the Category Button (dropbtn) */
+.dropbtn {
+    background-color: #FF0000; /* Solid Red */
+    color: #ffffff !important;  /* White text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none !important; /* Remove underline */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease;
+    margin-right: 0px;
+}
+
+.dropbtn:hover {
+    background-color: #8B0000; /* Darker red on hover */
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
+/* 2. Style the Dropdown Menu container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000;
+    border: 2px solid #330000;
+    list-style: none;
+    padding: 10px 0;
+    min-width: 160px;
+    z-index: 100;
+    margin-top: 5px;
+}
+
+/* Add this class - JS will use this to show the menu */
+.dropdown-menu.show {
+    display: block;
+}
+/* 3. Style links inside the menu */
+.dropdown-menu li a {
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none !important; /* Remove underline from items */
+    display: block;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #FF0000;
+    color: #ffffff;
+}
+
+/* 4. The Arrow Icon */
+.arrow {
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white;
+    margin-left: 8px;
+    display: inline-block;
+}
+
+/* --- MOBILE STYLES (Responsive) --- */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        /* This assumes your existing nav-links hide on mobile */
+        flex-direction: column; 
+    }
+
+    .dropdown-menu {
+        position: static; /* Moves it inside the flow of the list */
+        width: 100%;
+        border: none;
+        background-color: #111; /* Slightly lighter so it's visible as a sub-menu */
+        padding-left: 20px; /* Indent sub-items */
+    }
+
+    .dropbtn {
+        width: 100%; /* Full width button on mobile */
+        justify-content: space-between;
+    }
+}
 
 
 
